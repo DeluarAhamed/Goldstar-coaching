@@ -8,6 +8,7 @@ import {
   TrustRail,
 } from "../RevampBlocks";
 import ArticleTOC from "../ArticleTOC";
+import ResourceLibrary from "../ResourceLibrary";
 
 type PageData = {
   label: string;
@@ -233,6 +234,24 @@ const articles = [
     time: "6 min read",
     image: "/nina-headshot.png",
   },
+  { slug: "what-do-you-want-more-of-at-work", category: "Career clarity", title: "A better career question: what do you want more of?", excerpt: "Move beyond job-title thinking and notice the conditions that help you do your best work.", time: "5 min read", image: "/nina-cutout.png", theme: "6" },
+  { slug: "values-that-belong-in-career-decisions", category: "Career clarity", title: "The values that belong in a practical career decision", excerpt: "A grounded way to use values without turning them into abstract words on a page.", time: "6 min read", image: "/nina-headshot.png", theme: "7" },
+  { slug: "clarity-without-perfect-plan", category: "Career clarity", title: "Finding clarity without waiting for a perfect plan", excerpt: "How to create enough direction for the next useful step, even when the future is unfinished.", time: "6 min read", image: "/nina-headshot-soft.png", theme: "8" },
+  { slug: "career-change-small-experiments", category: "Career change", title: "Small experiments that make a career change less risky", excerpt: "Test assumptions through conversations and projects before committing to a dramatic leap.", time: "7 min read", image: "/nina-cutout.png", theme: "9" },
+  { slug: "tell-people-you-are-considering-change", category: "Career change", title: "How to tell people you are considering a career change", excerpt: "A thoughtful approach to asking for perspective without handing away your decision.", time: "5 min read", image: "/nina-headshot-soft.png", theme: "10" },
+  { slug: "when-a-good-role-no-longer-fits", category: "Career change", title: "When a good role no longer feels like the right role", excerpt: "You can appreciate what a position gave you and still recognise that it is time to move.", time: "6 min read", image: "/nina-headshot.png", theme: "11" },
+  { slug: "professional-identity-in-a-new-country", category: "Expat careers", title: "Rebuilding professional identity in a new country", excerpt: "Separate temporary disorientation from the strengths and experience that still travel with you.", time: "7 min read", image: "/nina-cutout.png", theme: "12" },
+  { slug: "network-from-zero-abroad", category: "Expat careers", title: "How to rebuild a professional network from zero abroad", excerpt: "Start with curiosity, useful context and a manageable rhythm of genuine conversations.", time: "6 min read", image: "/nina-headshot-soft.png", theme: "13" },
+  { slug: "expat-partner-career-question", category: "Expat careers", title: "The career question many expat partners quietly carry", excerpt: "Identity, ambition and family choices can coexist in a more honest professional conversation.", time: "7 min read", image: "/nina-headshot.png", theme: "14" },
+  { slug: "choose-target-roles", category: "Job search", title: "Choose target roles before rewriting your CV", excerpt: "Clear targeting makes every later job-search decision more focused and useful.", time: "5 min read", image: "/nina-cutout.png", theme: "15" },
+  { slug: "networking-without-asking-for-job", category: "Job search", title: "Networking without immediately asking for a job", excerpt: "Create conversations that are specific, respectful and genuinely informative.", time: "5 min read", image: "/nina-headshot.png", theme: "16" },
+  { slug: "recover-from-job-search-rejection", category: "Job search", title: "How to recover focus after job-search rejection", excerpt: "Review what the process taught you without letting one outcome define your value.", time: "6 min read", image: "/nina-headshot-soft.png", theme: "17" },
+  { slug: "write-a-linkedin-about-section", category: "LinkedIn visibility", title: "Write a LinkedIn About section that sounds like you", excerpt: "Connect credibility and direction in language that feels clear rather than performative.", time: "6 min read", image: "/nina-cutout.png", theme: "18" },
+  { slug: "linkedin-profile-for-career-change", category: "LinkedIn visibility", title: "Position your LinkedIn profile for a career change", excerpt: "Build a bridge between the experience you have and the direction you want to explore.", time: "7 min read", image: "/nina-headshot-soft.png", theme: "19" },
+  { slug: "linkedin-networking-rhythm", category: "LinkedIn visibility", title: "A sustainable LinkedIn networking rhythm", excerpt: "A calm weekly approach to visibility that does not require becoming a full-time creator.", time: "5 min read", image: "/nina-headshot.png", theme: "20" },
+  { slug: "speak-about-your-value", category: "Confidence at work", title: "Speak about your value without overselling yourself", excerpt: "Use evidence and context to communicate contribution with more ease and precision.", time: "6 min read", image: "/nina-cutout.png", theme: "21" },
+  { slug: "confidence-after-career-pause", category: "Confidence at work", title: "Rebuilding confidence after a career pause", excerpt: "Reconnect with capability through evidence, practice and conversations that restore perspective.", time: "7 min read", image: "/nina-headshot.png", theme: "22" },
+  { slug: "uncertainty-is-not-incompetence", category: "Confidence at work", title: "Uncertainty is not the same as incompetence", excerpt: "Why a demanding transition can make capable professionals temporarily doubt what they know.", time: "5 min read", image: "/nina-headshot-soft.png", theme: "23" },
 ];
 
 const legacy = [
@@ -400,41 +419,7 @@ function Resources() {
           Choose.
         </div>
       </section>
-      <nav className="topic-filter" aria-label="Resource topics">
-        {[
-          "All resources",
-          "Career clarity",
-          "Career change",
-          "Expat careers",
-          "Job search",
-          "LinkedIn visibility",
-        ].map((item) => (
-          <a key={item} href="#latest">
-            {item}
-          </a>
-        ))}
-      </nav>
-      <section className="resources-editorial" id="latest">
-        <header>
-          <p className="eyebrow">Latest resources</p>
-          <h2>Start with the question closest to yours.</h2>
-        </header>
-        <div>
-          {articles.map((article) => (
-            <a href={"/resources/" + article.slug} key={article.slug}>
-              <figure>
-                <img src={article.image} alt="" loading="lazy" />
-              </figure>
-              <span>
-                {article.category} · {article.time}
-              </span>
-              <h3>{article.title}</h3>
-              <p>{article.excerpt}</p>
-              <b>Read article ↗</b>
-            </a>
-          ))}
-        </div>
-      </section>
+      <ResourceLibrary articles={articles} />
       <Newsletter />
       <BookingBand />
       <Footer />
