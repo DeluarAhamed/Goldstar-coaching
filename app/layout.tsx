@@ -1,31 +1,12 @@
 import type { Metadata } from 'next';
-import './globals.css';
-
-export const metadata: Metadata = {
-  metadataBase: new URL('https://www.goldstar-coaching.com'),
-  title: 'Goldstar Coaching | Career & Expat Coaching',
-  description: 'Warm, practical coaching for career transitions, international professionals, and confident next steps.',
-  openGraph: {
-    title: 'Goldstar Coaching | Your story. Your career.',
-    description: 'Career and expat coaching for clarity, confidence, and a practical path forward.',
-    images: ['/og.png'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Goldstar Coaching | Your story. Your career.',
-    description: 'Career and expat coaching for clarity, confidence, and a practical path forward.',
-    images: ['/og.png'],
-  },
+import './goldstar.css';
+import Animations from './Animations';
+import RelatedPosts from './RelatedPosts';
+export const metadata:Metadata={
+  metadataBase:new URL('http://localhost:3000'),
+  title:'Goldstar Coaching | Career & Expat Coaching with Nina Sterngold',
+  description:'Calm, practical career and expat coaching for international professionals in English and German.',
+  openGraph:{title:'Goldstar Coaching',description:'Clarity, confidence and direction for your next career chapter.',images:[]},
+  twitter:{card:'summary_large_image',title:'Goldstar Coaching',description:'Career and expat coaching with Nina Sterngold.',images:[]}
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
-}
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body><Animations/><RelatedPosts/>{children}</body></html>}

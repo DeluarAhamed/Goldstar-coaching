@@ -1,71 +1,13 @@
-const services = [
-  { title: 'Career Coaching', href: 'https://www.goldstar-coaching.com/career-coaching', image: 'https://static.wixstatic.com/media/nsplsh_75434d4b78324831593338~mv2_d_4000_2667_s_4_2.jpg/v1/fill/w_267,h_181,al_c,q_80,enc_avif,quality_auto/nsplsh_75434d4b78324831593338~mv2_d_4000_2667_s_4_2.jpg' },
-  { title: 'Expat Coaching', href: 'https://www.goldstar-coaching.com/kopie-von-career-coaching', image: 'https://static.wixstatic.com/media/bca27e_0e127690e6e445ab863534e7493ef8bf~mv2.jpg/v1/fill/w_267,h_181,al_c,q_80,enc_avif,quality_auto/WORKING%20ABROAD%20text%20written%20on%20yellow%20paper%20with%20notebook.jpg' },
-  { title: 'Job Search Support', href: 'https://www.goldstar-coaching.com/kopie-von-career-coaching-1', image: 'https://static.wixstatic.com/media/nsplsh_61665731686874304e5373~mv2.jpg/v1/fill/w_267,h_181,al_c,q_80,enc_avif,quality_auto/Image%20by%20Markus%20Winkler.jpg' },
-];
-
-export default function Home() {
-  return <main>
-    <header className="site-header">
-      <a className="brand" href="#home" aria-label="Goldstar Coaching home"><span className="brand-sun">✺</span><span><strong>GOLDSTAR</strong><small>COACHING</small></span></a>
-      <nav aria-label="Main navigation"><a href="#home">Home</a><a href="#about">About me</a><a href="#services">Services</a><a href="#contact">Contact</a></nav>
-      <a className="button header-cta" href="#intro">Free Intro Session</a>
-    </header>
-
-    <section id="home" className="hero"><div className="hero-copy"><h1>Everyone has<br />more than<br />one story</h1></div></section>
-    <section className="story section-shell brush-bottom">
-      <h2>Your story. Your career.</h2>
-      <div className="narrow-copy">
-        <p>Many people reach a turning point in their professional lives — they feel stuck, uncertain, or ready for a meaningful change.</p>
-        <p>Career paths are rarely linear, and sometimes the direction we’ve taken no longer fits the person we’ve become. That disconnect can feel overwhelming — but it can also be an opportunity for growth and a chance to choose a new path that better suits who we are now.</p>
-        <p>I support you in discovering what you truly want next and developing practical steps to get there — with clearer direction, increased confidence, and a plan that feels doable.</p>
-        <p><strong>Together, we write your next chapter.</strong></p>
-      </div>
-    </section>
-
-    <section id="about" className="about section-shell brush-bottom">
-      <h2>About me</h2>
-      <div className="about-grid">
-        <div className="about-copy">
-          <h3>Hi, I&apos;m Nina – nice to meet you!</h3>
-          <p>I’m a certified coach with a strong background in international work and a deep interest in career transitions and professional growth.</p>
-          <h3>What you can expect</h3>
-          <p>I support professionals and organizations through career transitions, workplace challenges, and job search processes — especially in international contexts.</p>
-          <p>My coaching combines:</p>
-          <ul><li>Narrative and solution-focused professional coaching</li><li>6+ years advising people and companies on LinkedIn, personal branding, and career visibility</li><li>15+ years in leadership roles across international industries</li></ul>
-          <p>We turn insight into practical progress: refining your LinkedIn profile, activating your network, and positioning your strengths authentically.</p>
-          <h3>A little more about me</h3>
-          <p>I’m originally from Germany and have lived and worked across Europe, South America, Asia, Africa, and the US. I now live in Amsterdam. I’ve been coaching since 2017 and am trained in ICF-accredited Life and Organizational Coaching programs.</p>
-          <p><strong>Interested? Let’s connect for a free introductory session.</strong><br />I coach in German and English.</p>
-          <a className="button" href="#intro">Book Your Free Intro Session</a>
-        </div>
-        <aside className="profile">
-          <img src="https://static.wixstatic.com/media/bca27e_c1c2338069cc4b55bf390816c95d335c~mv2.jpg/v1/fill/w_414,h_600,al_c,q_80,enc_avif,quality_auto/web-Nina-038.jpg" alt="Coach and owner Nina Sterngold" />
-          <div className="snack"><strong>You don’t have time for long newsletters — honestly, neither do I.</strong><p>One question. One small thought. Or one tiny exercise. Extremely short. No fluff. Still impactful.</p><a className="button" href="mailto:hello@goldstar-coaching.com?subject=Mind%20Snack%20Newsletter">Mind Snack Newsletter</a></div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="services" className="services section-shell brush-bottom">
-      <h2>Coaching for career and life transitions</h2>
-      <div className="service-grid">{services.map(service => <a className="service-card" href={service.href} key={service.title}><img src={service.image} alt="" /><span>{service.title}</span></a>)}</div>
-    </section>
-
-    <section id="intro" className="intro section-shell">
-      <h2>Let’s talk – your free introductory session</h2>
-      <div className="intro-grid">
-        <div><p>This 25-minute call is a chance to get to know each other, ask your questions, and see whether coaching with me is a good fit for you.</p><p>This conversation is ideal if you are exploring a new career direction, living abroad, looking for more confidence, or simply want a neutral person to listen.</p><p>You’ll leave with more clarity — and without any pressure to book further sessions.</p></div>
-        <div className="checklist"><p>✓ Free of charge</p><p>✓ No strings attached</p><p>✓ Confidential &amp; personal</p><a className="button" href="https://cal.com/goldstar-coaching/free-introductury-session">Book Your Free Call</a></div>
-        <img src="https://static.wixstatic.com/media/bca27e_c0784bd1cdd449c787cf34a3c0cc6e52~mv2.jpg/v1/fill/w_341,h_454,al_c,q_80,enc_avif,quality_auto/bca27e_c0784bd1cdd449c787cf34a3c0cc6e52~mv2.jpg" alt="Notebook ready for an introductory coaching call" />
-      </div>
-    </section>
-
-    <footer id="contact">
-      <div className="footer-grid">
-        <div><h3>Find me on social media</h3><div className="social"><a href="https://www.linkedin.com/in/nina-sterngold-coach/" aria-label="LinkedIn">in</a><a href="https://www.xing.com/profile/Bettina_Sterngold/web_profiles" aria-label="Xing">X</a></div><p>© 2026 Goldstar Coaching.</p></div>
-        <form><label>Name *<input name="name" required /></label><label>Email *<input name="email" type="email" required /></label><label>Subject<input name="subject" /></label><label>Message<textarea name="message" rows={5} /></label><button type="submit">Send</button></form>
-      </div>
-      <div className="legal"><a href="https://www.goldstar-coaching.com/privacy-policy">Privacy Policy</a><a href="https://www.goldstar-coaching.com/terms-conditions">Terms &amp; Conditions</a></div>
-    </footer>
-  </main>;
-}
+import {Header,Footer,Button,Steps,Testimonials,Newsletter,ServiceCards} from './site';
+export default function Home(){const proof=['dieter','pamela-palos','robert','monika','pamela'];return <main>
+<Header/>
+<section className="home-hero"><div className="hero-orbit orbit-one"/><div className="hero-orbit orbit-two"/>
+  <div className="hero-content"><p className="kicker">Career & expat coaching · English + German</p><h1>Career change feels easier when you don’t have to figure it out alone.</h1><p className="hero-lead">Calm, practical coaching for international professionals who want more clarity, confidence and direction in their next career chapter.</p><div className="hero-actions"><Button href="/book">Book a Free Intro Session</Button><a href="/coaching-approach">See how coaching works →</a></div><div className="hero-proof"><div className="proof-portrait">{proof.map(x=><img src={`/client-${x}.png`} alt="Client" key={x}/>)}</div><p><b>Personal coaching with Nina</b><small>Real words from professionals Nina has supported</small></p><div className="proof-stars"><b>★★★★★</b><small>Clarity, confidence, direction</small></div></div></div>
+  <div className="hero-visual"><div className="visual-note note-one"><b>Clarity</b><small>Know what matters next</small></div><div className="visual-note note-two"><b>Confidence</b><small>Own your career story</small></div><div className="visual-note note-three">Direction <span>↗</span></div><div className="portrait-card"><img src="/nina-headshot.png" alt="Nina Sterngold, career and expat coach"/><div><b>Nina Sterngold</b><small>Career & Expat Coach</small></div></div><div className="visual-caption"><span>01</span><p>A calm space for your<br/><b>next career chapter.</b></p></div></div>
+</section>
+<section className="trust"><div className="trust-track">{[0,1].map(row=><div key={row}><span>Coaching since 2017</span><span>English + German</span><span>ICF Member</span><span>Career & Expat Coaching</span></div>)}</div></section>
+<section className="split intro-section"><p className="eyebrow">Who I help</p><div><h2>You don’t need to have the whole plan. You just need a place to start.</h2><p className="large-copy">I work with international professionals, expats, job seekers and people in transition who feel stuck, overwhelmed or unsure which direction to take next.</p></div></section>
+<section className="nina-editorial"><div><p className="eyebrow">A human conversation</p><h2>Space to think clearly. Support to move forward.</h2><p>You don’t need another generic framework. You need <b>thoughtful questions</b>, honest reflection, and <b>practical steps</b> shaped around your real life.</p><Button href="/about">Meet Nina</Button></div><div className="cutout-stage"><span>Calm</span><span>Practical</span><span>Personal</span><span className="float-star">✦</span><span className="float-ring">◎</span><img src="/nina-cutout.png" alt="Nina Sterngold in a coaching conversation"/></div></section>
+<section className="problem-band"><p className="eyebrow">Does this feel familiar?</p><div className="problem-grid"><article><span>01</span><h3>You’ve outgrown your role</h3><p>Your work no longer fits, but the next step still feels unclear.</p></article><article><span>02</span><h3>Too many possibilities</h3><p>You have ideas, but struggle to choose a direction and commit to it.</p></article><article><span>03</span><h3>Your confidence dipped</h3><p>A move, job search or career pause has made it harder to see your value.</p></article></div></section>
+<ServiceCards/><section className="process"><div><p className="eyebrow">How coaching works</p><h2>A thoughtful process that turns uncertainty into forward movement.</h2></div><Steps/></section><Testimonials/><Newsletter/><section className="final-cta"><p className="eyebrow">Your next chapter</p><h2>Ready to find your next direction?</h2><p>Let’s talk about where you are now, what you want to change, and how coaching could help.</p><Button href="/book" light>Book a Free Intro Session</Button></section><Footer/>
+</main>}
