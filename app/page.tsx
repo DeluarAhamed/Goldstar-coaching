@@ -144,7 +144,7 @@ export default function Home() {
         </header>
         <div>
         <a href="/resources/explore-a-new-career-direction">
-          <figure><img src="/nina-cutout.png" alt="" loading="lazy" /></figure>
+          <figure><img src="/resources/career-change.png" alt="Abstract paths representing a considered career change" loading="lazy" /></figure>
             <span>Career clarity · 7 min</span>
             <h3>
               How to explore a new direction without making a dramatic leap
@@ -152,7 +152,7 @@ export default function Home() {
             <b>Read the reflection ↗</b>
           </a>
         <a href="/resources/rebuild-confidence-after-moving-abroad">
-          <figure><img src="/nina-headshot.png" alt="" loading="lazy" /></figure>
+          <figure><img src="/resources/expat-careers.png" alt="Overlapping forms representing identity and belonging abroad" loading="lazy" /></figure>
             <span>Expat careers · 6 min</span>
             <h3>
               Rebuilding professional confidence after an international move
@@ -160,7 +160,7 @@ export default function Home() {
             <b>Read the reflection ↗</b>
           </a>
         <a href="/resources/create-a-calmer-job-search-rhythm">
-          <figure><img src="/nina-headshot-soft.png" alt="" loading="lazy" /></figure>
+          <figure><img src="/resources/job-search.png" alt="A focused sequence representing a calmer job search" loading="lazy" /></figure>
             <span>Job search · 5 min</span>
             <h3>A calmer, more focused weekly job-search rhythm</h3>
             <b>Read the reflection ↗</b>

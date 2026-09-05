@@ -254,6 +254,15 @@ const articles = [
   { slug: "uncertainty-is-not-incompetence", category: "Confidence at work", title: "Uncertainty is not the same as incompetence", excerpt: "Why a demanding transition can make capable professionals temporarily doubt what they know.", time: "5 min read", image: "/nina-headshot-soft.png", theme: "23" },
 ];
 
+const categoryImages: Record<string, string> = {
+  "Career clarity": "/resources/career-clarity.png",
+  "Career change": "/resources/career-change.png",
+  "Expat careers": "/resources/expat-careers.png",
+  "Job search": "/resources/job-search.png",
+  "LinkedIn visibility": "/resources/linkedin-visibility.png",
+  "Confidence at work": "/resources/confidence-at-work.png",
+};
+
 const legacy = [
   "career-no-longer-feels-like-yours",
   "explore-a-new-career-direction",
@@ -308,7 +317,7 @@ export async function generateMetadata({
       title,
       description,
       url: canonicalBase + path,
-      images: ["/og.png"],
+      images: [article ? categoryImages[article.category] : "/og.png"],
     },
   };
 }
@@ -402,24 +411,12 @@ function Resources() {
           navigating career change, job search, identity and visibility.
         </p>
       </section>
-      <section className="featured-post">
-        <div>
-          <span>Featured · {articles[0].time}</span>
-          <h2>{articles[0].title}</h2>
-          <p>{articles[0].excerpt}</p>
-          <a href={"/resources/" + articles[0].slug}>
-            Read the featured article ↗
-          </a>
-        </div>
-        <div className="editorial-shape">
-          Pause.
-          <br />
-          Notice.
-          <br />
-          Choose.
-        </div>
-      </section>
-      <ResourceLibrary articles={articles} />
+      <ResourceLibrary
+        articles={articles.map((article) => ({
+          ...article,
+          image: categoryImages[article.category],
+        }))}
+      />
       <Newsletter />
       <BookingBand />
       <Footer />
@@ -461,6 +458,12 @@ function Article({ article }: { article: (typeof articles)[number] }) {
             </span>
           </div>
         </header>
+        <figure className="article-cover">
+          <img
+            src={categoryImages[article.category]}
+            alt={`Editorial illustration for ${article.title}`}
+          />
+        </figure>
         <div className="article-reading">
           <ArticleTOC />
           <div>
@@ -551,7 +554,13 @@ function Article({ article }: { article: (typeof articles)[number] }) {
         <div>
           {related.map((item) => (
             <a href={"/resources/" + item.slug} key={item.slug}>
-              <figure><img src={item.image} alt="" loading="lazy" /></figure>
+              <figure>
+                <img
+                  src={categoryImages[item.category]}
+                  alt={`Editorial illustration for ${item.title}`}
+                  loading="lazy"
+                />
+              </figure>
               <span>{item.category}</span>
               <h3>{item.title}</h3>
               <b>Read article ↗</b>
@@ -568,6 +577,7 @@ function Article({ article }: { article: (typeof articles)[number] }) {
           headline: article.title,
           description: article.excerpt,
           author: { "@type": "Person", name: "Nina Sterngold" },
+          image: canonicalBase + categoryImages[article.category],
           mainEntityOfPage: canonicalBase + "/resources/" + article.slug,
         }}
       />
