@@ -1,5 +1,31 @@
 'use client';
-import {useEffect} from 'react';
+
+import { useEffect } from 'react';
 import gsap from 'gsap';
-import {ScrollTrigger} from 'gsap/ScrollTrigger';
-export default function Animations(){useEffect(()=>{const details=[...document.querySelectorAll<HTMLDetailsElement>('.faqs details')];const closeOthers=(event:Event)=>{const current=event.currentTarget as HTMLDetailsElement;if(current.open)details.forEach(item=>{if(item!==current)item.open=false})};details.forEach(item=>item.addEventListener('toggle',closeOthers));const grid=document.querySelector('.post-grid');let pagination:HTMLElement|null=null;if(grid&&location.pathname==='/resources'){pagination=document.createElement('nav');pagination.className='resource-pagination';pagination.setAttribute('aria-label','Blog pages');pagination.innerHTML='<a href="#">← Previous</a><a class="active" href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">Next →</a>';grid.insertAdjacentElement('afterend',pagination)}if(matchMedia('(prefers-reduced-motion: reduce)').matches)return()=>{details.forEach(item=>item.removeEventListener('toggle',closeOthers));pagination?.remove()};gsap.registerPlugin(ScrollTrigger);const ctx=gsap.context(()=>{gsap.from('.gs-header',{y:-28,opacity:0,duration:.8,ease:'power3.out'});gsap.from('.home-hero .kicker,.home-hero h1,.home-hero .hero-lead,.home-hero .hero-actions,.home-hero .hero-proof',{y:38,opacity:0,duration:.85,stagger:.1,ease:'power3.out'});gsap.from('.hero-visual',{x:55,opacity:0,duration:1,ease:'power3.out'});gsap.utils.toArray<HTMLElement>('.section-head,.content-sections article,.problem-grid article,.service-card,.steps article,.quote-track blockquote,.post-grid>a,.faqs details,.why>div').forEach(el=>gsap.from(el,{scrollTrigger:{trigger:el,start:'top 88%',once:true},y:45,opacity:0,duration:.75,ease:'power3.out'}));gsap.utils.toArray<HTMLElement>('.hero-orbit,.cutout-stage,.article-visual img,.service-page-hero aside').forEach(el=>gsap.to(el,{scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:1},yPercent:-8,ease:'none'}));});return()=>{ctx.revert();details.forEach(item=>item.removeEventListener('toggle',closeOthers));pagination?.remove()}},[]);return null}
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+export default function Animations() {
+  useEffect(() => {
+    const details = [...document.querySelectorAll<HTMLDetailsElement>('.faqs details')];
+    const closeOthers = (event: Event) => {
+      const current = event.currentTarget as HTMLDetailsElement;
+      if (current.open) details.forEach(item => { if (item !== current) item.open = false; });
+    };
+    details.forEach(item => item.addEventListener('toggle', closeOthers));
+
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return () => details.forEach(item => item.removeEventListener('toggle', closeOthers));
+
+    gsap.registerPlugin(ScrollTrigger);
+    const ctx = gsap.context(() => {
+      gsap.from('.gs-header', { y: -22, opacity: 0, duration: .7, ease: 'power3.out' });
+      gsap.from('.home-hero .kicker,.home-hero h1,.home-hero .hero-lead,.home-hero .hero-actions,.home-hero .hero-proof,.page-hero>div>*', { y: 32, opacity: 0, duration: .8, stagger: .08, ease: 'power3.out' });
+      gsap.from('.hero-visual,.service-page-hero>aside', { clipPath: 'inset(0 0 100% 0)', scale: 1.035, duration: 1.05, ease: 'expo.out' });
+      gsap.utils.toArray<HTMLElement>('.section-head,.problem-grid article,.service-card,.steps article,.quote-track blockquote,.faqs details,.signature-story article,.support-editorial article,.resources-editorial a,.proof-spotlight>*,.client-values span').forEach((element, index) => {
+        gsap.from(element, { scrollTrigger: { trigger: element, start: 'top 90%', once: true }, y: 34, opacity: 0, duration: .75, delay: Math.min(index % 4, 3) * .035, ease: 'power3.out' });
+      });
+    });
+
+    return () => { ctx.revert(); details.forEach(item => item.removeEventListener('toggle', closeOthers)); };
+  }, []);
+  return null;
+}
